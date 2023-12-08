@@ -73,13 +73,13 @@ const  Menu=()=>{
 return (
   <main className="menu">
     <h2>Our Menu</h2>
-    {numPizzas >0&& (
+    {numPizzas >0? (
       <ul className="pizzas">
         {pizzas.map((pizza) => (
           <Pizza pizzaObject={pizza} key={pizza.name} /> 
         ))}
       </ul>
-    )}
+    ):<p>We're still working on our menu. Please come back later</p>}
 
     {/* <Pizza
       name="Pizza Salamino"
@@ -140,13 +140,18 @@ const Footer= function (){
   // if(hour >=openHour && hour <closeHour) alert('We are currently open '); else alert('Sorry we are closed')
   return (
     <footer className="footer">
-      {isOpen && (
+      {isOpen ? (
         <div className="order">
-        <p>
-          We are open until {closeHour}:00⏱️ Come visit us or Order Online🍽️
-        </p>
-        <button className="btn">Order</button>
+          <p>
+            We are open until {closeHour}:00⏱️ Come visit us or Order Online🍽️
+          </p>
+          <button className="btn">Order</button>
         </div>
+      ) : (
+        <p>
+          We will be be opening at {openHour}:00⏱️. Please come back to enjoy
+          your pizza🍽️
+        </p>
       )}
     </footer>
   );
