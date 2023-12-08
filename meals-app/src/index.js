@@ -73,13 +73,19 @@ const  Menu=()=>{
 return (
   <main className="menu">
     <h2>Our Menu</h2>
-    {numPizzas >0? (
+    <p>
+      Authentic Italian Cuisine. 6 creative dishes to choose from . All from out
+      stone OverconstrainedError, all organic, and all delicioue
+    </p>
+    {numPizzas > 0 ? (
       <ul className="pizzas">
         {pizzas.map((pizza) => (
-          <Pizza pizzaObject={pizza} key={pizza.name} /> 
+          <Pizza pizzaObject={pizza} key={pizza.name} />
         ))}
       </ul>
-    ):<p>We're still working on our menu. Please come back later</p>}
+    ) : (
+      <p>We're still working on our menu. Please come back later</p>
+    )}
 
     {/* <Pizza
       name="Pizza Salamino"
@@ -120,13 +126,14 @@ return (
 );
 }
 function Pizza({pizzaObject}) {
+  // if(pizzaObject.soldOut) return null
   return (
-    <li className="pizza">
+    <li className={`pizza ${pizzaObject.soldOut? "sold-out":""  }`}>
       <img src={pizzaObject.photoName} alt="salamino" />
       <div>
-      <h3>{pizzaObject.name}</h3>
-      <p>{pizzaObject.ingredients}</p>
-      <span>{pizzaObject.price}</span>
+        <h3>{pizzaObject.name}</h3>
+        <p>{pizzaObject.ingredients}</p>
+        <span>{pizzaObject.soldOut ? "SOLD OUT" : pizzaObject.price}</span>
       </div>
     </li>
   );
@@ -141,12 +148,7 @@ const Footer= function (){
   return (
     <footer className="footer">
       {isOpen ? (
-        <div className="order">
-          <p>
-            We are open until {closeHour}:00⏱️ Come visit us or Order Online🍽️
-          </p>
-          <button className="btn">Order</button>
-        </div>
+       <Order openHour={openHour} closeHour={closeHour} />
       ) : (
         <p>
           We will be be opening at {openHour}:00⏱️. Please come back to enjoy
@@ -164,3 +166,11 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+function Order({closeHour, openHour}){
+  return  <div className="order">
+     <p>We are open from {openHour} to {closeHour}:00⏱️ Come visit us or Order Online🍽️</p>
+     <button className="btn">Order</button>
+   </div>;
+}
+
