@@ -20,7 +20,7 @@
            React.useEffect(()=>{
             setInterval(()=>{setTime(new Date().toLocaleTimeString())}, 1000)
            },[])
-            return React.createElement("header", null,  `hello React its  ${time}`)
+            return React.createElement("header", null,  `hello React its  ${time} o'clock`)
         }
         const root=ReactDom.createRoot(document.getElementById('root'))
         root.render(React.createElement(App))
