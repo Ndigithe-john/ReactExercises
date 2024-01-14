@@ -6,37 +6,49 @@ const messages = [
 ];
 function App() {
   const [step, setStep] = useState(1);
+  const [isOpen, setIsOpen] = useState(true);
   function handlePreviousPress() {
     if (step > 1) setStep(step - 1);
   }
   function nextPressHandler() {
     if (step < 3) setStep(step + 1);
   }
+  function closeModalHandler() {
+    if (isOpen === true) setIsOpen(false);
+    else setIsOpen(true);
+  }
 
   return (
-    <div className="steps">
-      <div className="numbers">
-        <div className={`${step >= 1 ? "active" : ""}`}> 1 </div>
-        <div className={`${step >= 2 ? "active" : ""}`}> 2 </div>
-        <div className={`${step >= 3 ? "active" : ""}`}> 3 </div>
-      </div>
-      <p className="message">
-        step {step}: {messages[step - 1]}
-      </p>
-      <div className="buttons">
-        <button
-          style={{ backgroundColor: "#7950f2", color: "#fff" }}
-          onClick={handlePreviousPress}
-        >
-          Previous
-        </button>
-        <button
-          style={{ backgroundColor: "#7950f2", color: "#fff" }}
-          onClick={nextPressHandler}
-        >
-          Next
-        </button>
-      </div>
+    <div>
+      <button className="close" onClick={closeModalHandler}>
+        &times;
+      </button>
+      {isOpen && (
+        <div className="steps">
+          <div className="numbers">
+            <div className={step >= 1 ? "active" : ""}> 1 </div>
+            <div className={step >= 2 ? "active" : ""}> 2 </div>
+            <div className={step >= 3 ? "active" : ""}> 3 </div>
+          </div>
+          <p className="message">
+            step {step}: {messages[step - 1]}
+          </p>
+          <div className="buttons">
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              onClick={handlePreviousPress}
+            >
+              Previous
+            </button>
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              onClick={nextPressHandler}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
