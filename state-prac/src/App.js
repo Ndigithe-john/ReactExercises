@@ -8,17 +8,21 @@ function App() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
   function handlePreviousPress() {
-    if (step > 1) setStep(step - 1);
+    if (step > 1) {
+      setStep((initialState) => initialState - 1);
+    }
   }
   function nextPressHandler() {
-    if (step < 3) setStep(step + 1);
+    if (step < 3) {
+      setStep((currentState) => currentState + 1);
+    }
   }
   function closeModalHandler() {
-    setIsOpen(!isOpen);
+    setIsOpen((currentState) => !currentState);
   }
 
   return (
-    <div>
+    <>
       <button className="close" onClick={closeModalHandler}>
         &times;
       </button>
@@ -48,7 +52,7 @@ function App() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
