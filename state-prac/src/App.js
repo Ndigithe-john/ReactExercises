@@ -14,8 +14,7 @@ function App() {
     if (step < 3) setStep(step + 1);
   }
   function closeModalHandler() {
-    if (isOpen === true) setIsOpen(false);
-    else setIsOpen(true);
+    setIsOpen(!isOpen);
   }
 
   return (
