@@ -1,10 +1,10 @@
-import "./index.css";
 import Accordion from "./components/Accordion";
+import faqs from "./data/fags";
 function App() {
   return (
     <div>
       <p> lorem ipsium </p>
-      <Accordion />
+      <Accordion data={faqs} />
     </div>
   );
 }

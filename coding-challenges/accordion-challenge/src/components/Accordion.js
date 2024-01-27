@@ -1,8 +1,16 @@
 import "../index.css";
-export default function Accordion() {
+import AccordionItem from "./AccordionItem";
+export default function Accordion({ data }) {
   return (
-    <div>
-      <p>Lets begin</p>
+    <div className="accordion">
+      {data.map((faq, index) => (
+        <AccordionItem
+          key={index}
+          title={faq.title}
+          text={faq.text}
+          number={index}
+        />
+      ))}
     </div>
   );
 }
