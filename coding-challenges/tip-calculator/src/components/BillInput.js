@@ -1,15 +1,13 @@
-import { useState } from "react";
 import "../index.css";
-function BillInput() {
-  const [billAmount, setBillAmount] = useState(0);
+function BillInput({ bill, onSetBill }) {
   return (
     <div>
       <label>How much was the bill? </label>
       <input
         type="text"
         placeholder="Enter bill amount"
-        value={billAmount}
-        onChange={(e) => setBillAmount(e.target.value)}
+        value={bill}
+        onChange={(e) => onSetBill(Number(e.target.value))}
       />
     </div>
   );

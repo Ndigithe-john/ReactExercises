@@ -1,7 +1,7 @@
-function Button() {
+function Button({ onResetClick }) {
   return (
     <div>
-      <button>reset</button>
+      <button onClick={onResetClick}>reset</button>
     </div>
   );
 }

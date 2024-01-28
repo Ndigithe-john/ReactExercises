@@ -1,7 +1,9 @@
-function Outputbill() {
+function Outputbill({ bill, tip }) {
   return (
     <div>
-      <h2>You pay $20($15+$5 tip)</h2>
+      <h2>
+        You pay ${bill + tip} (${bill}+${tip} tip)
+      </h2>
     </div>
   );
 }
