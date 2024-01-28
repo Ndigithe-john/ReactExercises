@@ -8,7 +8,7 @@ export default function AccordionItem({
   const isOpen = number === currOpen;
   function handleToggle() {
     // setIsOpen((current) => !current);
-    onOpen(number);
+    onOpen(isOpen ? null : number);
   }
   return (
     <div className={`item ${isOpen ? "open" : ""}`} onClick={handleToggle}>

@@ -16,6 +16,20 @@ export default function Accordion({ data }) {
           {faq.text}
         </AccordionItem>
       ))}
+      <AccordionItem
+        currOpen={currentOpen}
+        onOpen={setCurrentlyOpen}
+        key={5}
+        title="Thinking in React"
+        number={5}
+      >
+        <h5>Allows React Developers to</h5>
+        <ul>
+          <li>Break up UI into components</li>
+          <li>Make Components Reusable</li>
+          <li>Place State efficiently</li>
+        </ul>
+      </AccordionItem>
     </div>
   );
 }
