@@ -1,7 +1,7 @@
-function Button({ children }) {
+function Button() {
   return (
     <div>
-      <button>{children}</button>
+      <button>reset</button>
     </div>
   );
 }

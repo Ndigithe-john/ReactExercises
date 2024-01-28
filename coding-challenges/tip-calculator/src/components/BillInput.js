@@ -6,7 +6,8 @@ function BillInput() {
     <div>
       <label>How much was the bill? </label>
       <input
-        type="number"
+        type="text"
+        placeholder="Enter bill amount"
         value={billAmount}
         onChange={(e) => setBillAmount(e.target.value)}
       />
