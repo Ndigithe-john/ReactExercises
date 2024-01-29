@@ -7,8 +7,7 @@ function FormAddFriend() {
 
       <label>🌆image URL</label>
       <input type="text" />
-
-      <Button>Add Friend</Button>
+      <Button>Add</Button>
     </form>
   );
 }
