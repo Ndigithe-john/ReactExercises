@@ -1,8 +1,13 @@
-import initialFriends from "./data/InitialFriends";
+import FriendsList from "./components/FriendsList";
 
 function App() {
-  console.log(initialFriends);
-  return <div></div>;
+  return (
+    <div className="app">
+      <div className="sidebar">
+        <FriendsList />
+      </div>
+    </div>
+  );
 }
 
 export default App;
