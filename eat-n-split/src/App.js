@@ -17,7 +17,11 @@ function App() {
     setShowAddFriend(false);
   }
   function handleSelection(friend) {
-    setSelectedFriend(friend);
+    setSelectedFriend((curselected) =>
+      curselected?.id === friend.id ? null : friend
+    );
+    setShowAddFriend(false);
+    // setSelectedFriend(friend);
   }
   return (
     <div className="app">
