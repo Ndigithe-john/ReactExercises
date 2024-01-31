@@ -1,11 +1,10 @@
 import "../index.css";
 import WatchedBox from "./WatchedBox";
-import ListBox from "./ListBox";
 
-function Main({ movies }) {
+function Main({ children }) {
   return (
     <main className="main">
-      <ListBox movies={movies} />
+      {children}
       <WatchedBox />
     </main>
   );
