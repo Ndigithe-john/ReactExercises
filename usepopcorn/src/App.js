@@ -22,7 +22,7 @@ export default function App() {
         <NumResults movies={movies} />
       </Navbar>
       <Main>
-        <Box element={<MovieList movies={movies} />} />
+        {/* <Box element={<MovieList movies={movies} />} />
         <Box
           element={
             <>
@@ -30,14 +30,14 @@ export default function App() {
               <WatchedMovieList watched={watched} />
             </>
           }
-        />
-        {/* <Box>
+        /> */}
+        <Box>
           <MovieList movies={movies} />
         </Box>
         <Box>
           <WatchedSummary watched={watched} />
           <WatchedMovieList watched={watched} />
-        </Box> */}
+        </Box>
       </Main>
     </>
   );
