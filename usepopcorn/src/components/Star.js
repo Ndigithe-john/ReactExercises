@@ -4,9 +4,9 @@ const starStyle = {
   display: "block",
   cursor: "pointer",
 };
-function Star({ onClick, full }) {
+function Star({ onRate, full }) {
   return (
-    <span role="button" style={starStyle} onClick={onClick}>
+    <span role="button" style={starStyle} onClick={onRate}>
       {full ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
