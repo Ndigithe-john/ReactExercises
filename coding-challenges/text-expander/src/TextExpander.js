@@ -10,10 +10,17 @@ function TextExpander({
   className = "",
 }) {
   const buttonStyle = {
+    background: "none",
+    border: "none",
+    font: "inherit",
+    cursor: "pointer",
+    marginLeft: "6px",
     color: `${buttonColor}`,
   };
   const [isExpanded, setIsExpanded] = useState(expanded);
-  const displayText = isExpanded ? children : "text";
+  const displayText = isExpanded
+    ? children
+    : children.split(" ").slice(0, collapsedNumWords).join(" ") + "...";
   return (
     <div className={className}>
       <span>
