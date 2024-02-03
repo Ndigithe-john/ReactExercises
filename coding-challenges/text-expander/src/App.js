@@ -1,5 +1,5 @@
 import "./index.css";
-
+import TextExpander from "./TextExpander";
 export default function App() {
   return (
     <div>
@@ -32,8 +32,4 @@ export default function App() {
       </TextExpander>
     </div>
   );
-}
-
-function TextExpander() {
-  return <div>TODO</div>;
 }
