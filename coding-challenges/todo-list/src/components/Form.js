@@ -5,8 +5,8 @@ const Form = () => {
     e.preventDefault();
   }
   return (
-    <form onSubmit={submitHandler}>
-      <input placeholder="" />
+    <form className="inputForm" onSubmit={submitHandler}>
+      <input placeholder="input task" />
       <button type="submit">Add</button>
     </form>
   );

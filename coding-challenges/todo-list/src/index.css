@@ -4,4 +4,21 @@
 .App {
   display: flex;
   justify-content: center;
+  margin-top: 40px;
+}
+.inputForm input {
+  width: 40rem;
+  height: 3em;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid rgb(228, 194, 194);
+}
+.inputForm button {
+  margin-left: 4px;
+  width: 5rem;
+  height: 2em;
+  background-color: brown;
+  border: none;
+  border-radius: 4px;
+  color: white;
 }
