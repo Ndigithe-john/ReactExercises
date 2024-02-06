@@ -1,5 +1,3 @@
-import React from "react";
-
 const Form = () => {
   function submitHandler(e) {
     e.preventDefault();
