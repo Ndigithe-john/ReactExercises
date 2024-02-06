@@ -1,3 +1,4 @@
+import Task from "./Task";
 const tasks = [
   {
     id: 1,
@@ -15,12 +16,12 @@ const tasks = [
     completed: false,
   },
 ];
-import Task from "./Task";
+
 function Tasks() {
   return (
     <div>
-      {tasks.map((task) => (
-        <Task />
+      {tasks.map((task, i) => (
+        <Task task={task} key={task.id} index={i} />
       ))}
     </div>
   );
