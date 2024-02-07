@@ -17,7 +17,7 @@ const tasks = [
   },
 ];
 
-function Tasks(task) {
+function Tasks({ task, tasks }) {
   return (
     <div>
       {tasks.map((task, i) => (
