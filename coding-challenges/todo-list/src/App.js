@@ -12,10 +12,13 @@ function App() {
     setTasks((prev) => [...prev, newTask]);
     getTask("");
   }
+  function handleDelete(id) {
+    setTasks((prev) => prev.filter((task) => task.id !== id));
+  }
   return (
     <div className="App">
       <Form task={task} onGetTask={getTask} submitHandler={submitHandler} />
-      <Tasks task={task} tasks={tasks} />
+      <Tasks tasks={tasks} handleDelete={handleDelete} />
     </div>
   );
 }

@@ -17,11 +17,11 @@ const tasks = [
   },
 ];
 
-function Tasks({ task, tasks }) {
+function Tasks({ tasks, handleDelete }) {
   return (
     <div>
       {tasks.map((task, i) => (
-        <Task task={task} key={task.id} index={i} />
+        <Task task={task} key={task.id} index={i} handleDelete={handleDelete} />
       ))}
     </div>
   );
