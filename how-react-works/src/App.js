@@ -79,10 +79,16 @@ function TabContent({ item }) {
     console.log(likes);
   }
   function handleTrippleInc() {
-    setLikes((likes) => likes + 1);
-    setLikes((likes) => likes + 1);
-    console.log(likes);
-    setLikes(likes + 1);
+    // setLikes((likes) => likes + 1);
+    // setLikes((likes) => likes + 1);
+    // console.log(likes);
+    // setLikes(likes + 1);
+    handleInc();
+    handleInc();
+    handleInc();
+  }
+  function handleUndoInTwoSeconds() {
+    setTimeout(handleUndo, 2000);
   }
   return (
     <div className="tab-content">
@@ -103,7 +109,7 @@ function TabContent({ item }) {
 
       <div className="tab-undo">
         <button onClick={handleUndo}>Undo</button>
-        <button>Undo in 2s</button>
+        <button onClick={handleUndoInTwoSeconds}>Undo in 2s</button>
       </div>
     </div>
   );
