@@ -71,7 +71,7 @@ function TabContent({ item }) {
   console.log("RENNDER");
 
   function handleInc() {
-    setLikes(likes + 1);
+    setLikes((likes) => likes + 1);
   }
   function handleUndo() {
     setShowDetails(true);
@@ -79,7 +79,10 @@ function TabContent({ item }) {
     console.log(likes);
   }
   function handleTrippleInc() {
-    setLikes(likes + 3);
+    setLikes((likes) => likes + 1);
+    setLikes((likes) => likes + 1);
+    console.log(likes);
+    setLikes(likes + 1);
   }
   return (
     <div className="tab-content">
