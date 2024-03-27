@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { flushSync } from "react-dom";
 const content = [
   {
     id: 1,
@@ -25,6 +25,7 @@ export default function App() {
   return (
     <div>
       <Tabbed content={content} />
+      <Reset />
     </div>
   );
 }
@@ -101,6 +102,22 @@ function DifferentContent() {
   return (
     <div className="tab-content">
       <h4>I'm a DIFFERENT tab, so I reset state 💣💥</h4>
+    </div>
+  );
+}
+
+function Reset() {
+  const [number, setNumber] = useState(0);
+  const [isTrue, setIsTrue] = useState(true);
+  const reset = function () {
+    flushSync(() => setNumber(10));
+    console.log(number);
+    setIsTrue(false);
+    console.log(isTrue);
+  };
+  return (
+    <div>
+      <button onClick={reset}>reset</button>
     </div>
   );
 }
