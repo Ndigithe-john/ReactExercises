@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Logo from "./components/Logo";
 import Search from "./components/Search";
@@ -15,9 +15,11 @@ export default function App() {
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
 
-  fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=Game of thrones`).then((res) =>
-    res.json().then((data) => console.log(data.Search))
-  );
+  useEffect(() => {
+    fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=Game of thrones`).then(
+      (res) => res.json().then((data) => setMovies(data.Search))
+    );
+  }, []);
 
   return (
     <>
