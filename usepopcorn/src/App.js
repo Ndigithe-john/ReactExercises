@@ -16,9 +16,14 @@ export default function App() {
   const [watched, setWatched] = useState([]);
 
   useEffect(() => {
-    fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=Game of thrones`).then(
-      (res) => res.json().then((data) => setMovies(data.Search))
-    );
+    async function fetchMovies() {
+      const res = await fetch(
+        `http://www.omdbapi.com/?apikey=${KEY}&s=Game of thrones`
+      );
+      const data = await res.json();
+      setMovies(data.Search);
+    }
+    fetchMovies();
   }, []);
 
   return (
