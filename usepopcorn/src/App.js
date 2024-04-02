@@ -10,10 +10,15 @@ import WatchedSummary from "./components/WatchedSummary";
 import WatchedMovieList from "./components/WatchedMovieList";
 import tempMovieData from "./data.js/tempMovieData";
 import tempWatchedData from "./data.js/tempWatchedData";
-
+const KEY = "308c28b2";
 export default function App() {
-  const [movies, setMovies] = useState(tempMovieData);
-  const [watched, setWatched] = useState(tempWatchedData);
+  const [movies, setMovies] = useState([]);
+  const [watched, setWatched] = useState([]);
+
+  fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=Game of thrones`).then((res) =>
+    res.json().then((data) => console.log(data.Search))
+  );
+
   return (
     <>
       <Navbar>
