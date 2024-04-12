@@ -10,28 +10,36 @@ import WatchedSummary from "./components/WatchedSummary";
 import WatchedMovieList from "./components/WatchedMovieList";
 import Loader from "./components/Loader";
 import Error from "./components/Error";
-import tempMovieData from "./data.js/tempMovieData";
-import tempWatchedData from "./data.js/tempWatchedData";
 const KEY = "308c28b2";
 export default function App() {
   const [movies, setMovies] = useState([]);
+  const [query, setQuery] = useState();
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const tempQuery = "Game of thrones";
+  useEffect(() => {
+    console.log("After Initial Render ");
+  }, []);
+  useEffect(() => {
+    console.log("After Every Render");
+  });
+  console.log("During Render");
+  useEffect(() => {
+    console.log("After Query Change");
+  }, [query]);
   useEffect(() => {
     async function fetchMovies() {
       try {
         setIsLoading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&s=hjklkjh`
+          `http://www.omdbapi.com/?apikey=${KEY}&s=${tempQuery}`
         );
-        console.log(res);
+
         if (!res.ok) {
           throw new Error("something went wrong while fetching movies");
         }
         const data = await res.json();
-        console.log(data);
         if (data.Response === "False") {
           throw new Error("Movie not found");
         }
@@ -50,7 +58,7 @@ export default function App() {
     <>
       <Navbar>
         <Logo />
-        <Search />
+        <Search query={query} setQuery={setQuery} />
         <NumResults movies={movies} />
       </Navbar>
       <Main>
