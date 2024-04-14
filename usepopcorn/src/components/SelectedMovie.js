@@ -24,15 +24,15 @@ const SelectedMovie = ({ selectedId, onCloseMovie }) => {
       setMovie(data);
     }
     getMovieDetails();
-  }, []);
+  }, [selectedId]);
   return (
     <div className="details">
-      <headr>
+      <header>
         <button className="btn-back" onClick={onCloseMovie}>
           &larr;
         </button>
         <img src={poster} alt={title} />
-      </headr>
+      </header>
       {selectedId}
     </div>
   );
