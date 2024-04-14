@@ -39,7 +39,11 @@ export default function App() {
   function handleAddWatched(movie) {
     setWatched([...watched, movie]);
   }
-
+  function handleDeleteWatched(movieID) {
+    setWatched((watched) =>
+      watched.filter((movie) => movie.imdbID !== movieID)
+    );
+  }
   useEffect(() => {
     async function fetchMovies() {
       try {
@@ -57,7 +61,6 @@ export default function App() {
           throw new Error("Movie not found");
         }
         setMovies(data.Search);
-        console.log(data.Search);
       } catch (err) {
         console.error(err.message);
         setError(err.message);
@@ -113,11 +116,15 @@ export default function App() {
               selectedId={selectedId}
               onCloseMovie={handleCloseMovie}
               onAddWatched={handleAddWatched}
+              watched={watched}
             />
           ) : (
             <>
               <WatchedSummary watched={watched} />
-              <WatchedMovieList watched={watched} />
+              <WatchedMovieList
+                watched={watched}
+                onDeleteWatched={handleDeleteWatched}
+              />
             </>
           )}
         </Box>
