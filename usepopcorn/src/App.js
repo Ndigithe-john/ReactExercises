@@ -14,7 +14,7 @@ import SelectedMovie from "./components/SelectedMovie";
 const KEY = "308c28b2";
 export default function App() {
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("Game of thrones");
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
