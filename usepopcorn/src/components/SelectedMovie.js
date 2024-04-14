@@ -32,6 +32,14 @@ const SelectedMovie = ({ selectedId, onCloseMovie }) => {
           &larr;
         </button>
         <img src={poster} alt={title} />
+        <div className="details-overview">
+          <h2>{title}</h2>
+          <p>
+            {released} &bull; {runtime}
+          </p>
+          <p>{genre}</p>
+          <p></p>
+        </div>
       </header>
       {selectedId}
     </div>
