@@ -14,7 +14,7 @@ import SelectedMovie from "./components/SelectedMovie";
 const KEY = "308c28b2";
 export default function App() {
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState("Game of thrones");
+  const [query, setQuery] = useState("");
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -44,6 +44,7 @@ export default function App() {
       watched.filter((movie) => movie.imdbID !== movieID)
     );
   }
+
   useEffect(() => {
     const controller = new AbortController();
     async function fetchMovies() {
@@ -78,6 +79,7 @@ export default function App() {
       setError("");
       return;
     }
+    handleCloseMovie();
     fetchMovies();
     return function () {
       controller.abort();
