@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import StarRating from "./StarRating";
 const KEY = "308c28b2";
 const SelectedMovie = ({ selectedId, onCloseMovie }) => {
   const [movie, setMovie] = useState({});
@@ -38,10 +39,21 @@ const SelectedMovie = ({ selectedId, onCloseMovie }) => {
             {released} &bull; {runtime}
           </p>
           <p>{genre}</p>
-          <p></p>
+          <p>
+            <span>⭐</span> {imdbRating} IMDb rating
+          </p>
         </div>
       </header>
-      {selectedId}
+      <section>
+        <div className="rating">
+          <StarRating maxRating={10} size={18} />
+        </div>
+        <p>
+          <em>{plot}</em>
+        </p>
+        <p>Starring {actor}</p>
+        <p>Directed by {director}</p>
+      </section>
     </div>
   );
 };
