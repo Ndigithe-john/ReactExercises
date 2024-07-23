@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Logo from "./components/Logo";
 import Search from "./components/Search";
@@ -11,25 +11,16 @@ import WatchedMovieList from "./components/WatchedMovieList";
 import Loader from "./components/Loader";
 import Error from "./components/Error";
 import SelectedMovie from "./components/SelectedMovie";
-const KEY = "308c28b2";
+import { useMovies } from "./components/useMovies";
+import { useLocalStorageState } from "./components/useLocalStorageState";
+
 export default function App() {
-  const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
-  const [watched, setWatched] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const { movies, isLoading, error } = useMovies(query);
+
+  const [watched, setWatched] = useLocalStorageState([], "watched");
   const [selectedId, setSelectedId] = useState(null);
 
-  // useEffect(() => {
-  //   console.log("After Initial Render ");
-  // }, []);
-  // useEffect(() => {
-  //   console.log("After Every Render");
-  // });
-  // console.log("During Render");
-  // useEffect(() => {
-  //   console.log("After Query Change");
-  // }, [query]);
   function handleSelectedMovie(movieID) {
     setSelectedId((selectedID) => (movieID === selectedID ? null : movieID));
   }
@@ -38,53 +29,13 @@ export default function App() {
   }
   function handleAddWatched(movie) {
     setWatched([...watched, movie]);
+    // localStorage.setItem("watched", JSON.stringify([...watched, movie]));
   }
   function handleDeleteWatched(movieID) {
     setWatched((watched) =>
       watched.filter((movie) => movie.imdbID !== movieID)
     );
   }
-
-  useEffect(() => {
-    const controller = new AbortController();
-    async function fetchMovies() {
-      try {
-        setIsLoading(true);
-        setError("");
-        const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
-          { signal: controller.signal }
-        );
-
-        if (!res.ok) {
-          throw new Error("something went wrong while fetching movies");
-        }
-        const data = await res.json();
-        if (data.Response === "False") {
-          throw new Error("Movie not found");
-        }
-        setMovies(data.Search);
-        setError("");
-      } catch (err) {
-        console.error(err.message);
-        if (err.name !== "AbortError") {
-          setError(err.message);
-        }
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    if (query.length < 3) {
-      setMovies([]);
-      setError("");
-      return;
-    }
-    handleCloseMovie();
-    fetchMovies();
-    return function () {
-      controller.abort();
-    };
-  }, [query]);
 
   return (
     <>
