@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "@screens/Home";
 import Pricing from "@screens/Pricing";
 import ProductCard from "@screens/Product";
+import ErrorPage from "@screens/Error";
+import { Layout } from "@screens/Layout";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="product" element={<ProductCard />} />
         <Route path="pricing" element={<Pricing />} />
+        <Route path="app" element={<Layout />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );
