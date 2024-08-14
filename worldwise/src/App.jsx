@@ -5,6 +5,7 @@ import Pricing from "@screens/Pricing";
 import ProductCard from "@screens/Product";
 import ErrorPage from "@screens/Error";
 import { Layout } from "@screens/Layout";
+import Login from "@screens/Login";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="product" element={<ProductCard />} />
         <Route path="pricing" element={<Pricing />} />
+        <Route path="login" element={<Login />} />
         <Route path="app" element={<Layout />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
