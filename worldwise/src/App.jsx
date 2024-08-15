@@ -4,8 +4,9 @@ import HomePage from "@screens/Home";
 import Pricing from "@screens/Pricing";
 import ProductCard from "@screens/Product";
 import ErrorPage from "@screens/Error";
-import { Layout } from "@screens/Layout";
+import AppLayout from "@screens/Layout";
 import Login from "@screens/Login";
+import CityList from "@components/CityList";
 
 function App() {
   return (
@@ -15,7 +16,12 @@ function App() {
         <Route path="product" element={<ProductCard />} />
         <Route path="pricing" element={<Pricing />} />
         <Route path="login" element={<Login />} />
-        <Route path="app" element={<Layout />} />
+        <Route path="app" element={<AppLayout />}>
+          <Route index element={<CityList />} />
+          <Route path="cities" element={<CityList />} />
+          <Route path="countries" element={<p>countries</p>} />
+          <Route path="form" element={<p>form</p>} />
+        </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
