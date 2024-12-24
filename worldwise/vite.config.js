@@ -12,6 +12,8 @@ export default defineConfig({
     alias: {
       "@components": ["/src/components"],
       "@screens": ["/src/screens"],
+      "@contexts": ["/src/contexts"],
+      "@hooks": ["/src/hooks"],
     },
   },
 });

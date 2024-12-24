@@ -3,7 +3,9 @@
     "baseUrl": "src",
     "paths": {
       "@components/*": ["components/*"],
-      "@screens/*": ["screens/*"]
+      "@screens/*": ["screens/*"],
+      "@contexts/*": ["contexts/*"],
+      "@hooks/*": ["hooks/*"]
     }
   }
 }
