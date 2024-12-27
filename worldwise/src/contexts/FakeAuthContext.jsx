@@ -18,6 +18,7 @@ function reducer(state, action) {
         ...state,
         user: action.payload,
         isAuthenticated: true,
+        error: "",
       };
 
     case "logout":

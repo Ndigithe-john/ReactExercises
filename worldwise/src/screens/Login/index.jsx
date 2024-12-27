@@ -9,19 +9,22 @@ export default function Login() {
   // PRE-FILL FOR DEV PURPOSES
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
+  const [submitCount, setSubmitCount] = useState(0);
   const navigate = useNavigate();
-  const { login, isAuthenticated } = useAuth();
+  const { login, isAuthenticated, error } = useAuth();
 
   function handleSubmit(e) {
     e.preventDefault();
     if (email && password) {
       login(email, password);
+      setSubmitCount((prev) => prev + 1);
     }
   }
 
   useEffect(() => {
     if (isAuthenticated) navigate("/app", { replace: true });
-  }, [isAuthenticated, navigate]);
+    if (error) alert(error);
+  }, [isAuthenticated, navigate, error, submitCount]);
 
   return (
     <main className={styles.login}>
