@@ -141,7 +141,9 @@ export default function App() {
       <p>
         <button
           onClick={() => {
-            dispatch({ type: "closeAccount" });
+            if (balance === 0 && loan === 0) {
+              dispatch({ type: "closeAccount" });
+            }
           }}
           disabled={!isActive}
         >
