@@ -12,9 +12,7 @@ import Timer from "./Timer";
 import { useQuiz } from "../contexts/QuizContext";
 
 function App() {
-  const uses = useQuiz();
-  console.log(uses);
-  const { status } = uses;
+  const { status } = useQuiz();
 
   return (
     <div className="app">
