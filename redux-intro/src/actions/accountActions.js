@@ -5,8 +5,8 @@ import {
   ACCOUNT_REQUEST_LOAN,
 } from "../constants/accountsConstants";
 
-export const accountDeposit = () => {
-  return { type: ACCOUNT_DEPOSIT, payload: 500 };
+export const accountDeposit = (amount) => {
+  return { type: ACCOUNT_DEPOSIT, payload: amount };
 };
 
 export const accountWithdraw = () => {

@@ -3,12 +3,12 @@ import {
   CUSTOMER_UPDATENAME,
 } from "../constants/customerConstants";
 
-export const createCustomer = () => {
+export const createCustomer = (fullName, nationalID) => {
   return {
     type: CUSTOMER_CREATECUSTOMER,
     payload: {
-      fullName: "John Doe",
-      nationalID: "111111",
+      fullName,
+      nationalID,
       createdAt: new Date().toISOString(),
     },
   };
