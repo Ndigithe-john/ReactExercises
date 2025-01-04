@@ -6,11 +6,12 @@ import "./index.css";
 import App from "./App";
 import store from "./store";
 import storeV1 from "./store-v1";
+import storeV3 from "./store-v3";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={storeV3}>
       <App />
     </Provider>
   </React.StrictMode>
