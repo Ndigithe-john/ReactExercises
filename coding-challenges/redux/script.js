@@ -13,7 +13,7 @@ const action = {
 function orderPizza() {
   return {
     type: ORDER_PIZZA,
-    shop_name: "Pizza shop",
+    payload: 90,
   };
 }
 
@@ -42,3 +42,18 @@ const store = createStore(reducer);
 // 2. It exposes a method called getState which gives your application access to the current state in the store
 
 console.log(store.getState());
+
+// 3 Register Listners via subscribe (listner)
+
+const unsubscribe = store.subscribe(() =>
+  console.log("Updated State", store.getState())
+);
+
+// 4 It allows to update the state via dispatch(action)
+store.dispatch(orderPizza());
+store.dispatch(orderPizza());
+
+// 5 Handles unregistering of listners via the function returned by subscribe(listner)
+unsubscribe();
+console.log("Unsubscribed");
+store.dispatch(orderPizza());
