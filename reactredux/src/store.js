@@ -1,7 +1,13 @@
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
 
 import { pizzaReducer } from "./reducers/pizzaReducers";
+import { burgerReducer } from "./reducers/burgerReducers";
 
-const store = createStore(pizzaReducer);
+const rootReducer = combineReducers({
+  pizza: pizzaReducer,
+  burger: burgerReducer,
+});
+
+const store = createStore(rootReducer);
 
 export default store;
