@@ -1,6 +1,10 @@
 const redux = require("redux");
+const reduxLogger = require("redux-logger");
+
 const createStore = redux.createStore;
 const combineReducers = redux.combineReducers;
+const logger = reduxLogger.createLogger();
+const applyMiddleware = redux.applyMiddleware;
 
 const ORDER_PIZZA = "ORDER_PIZZA";
 const ORDER_BURGER = "ORDER_BURGER";
@@ -15,7 +19,7 @@ const action = {
 function orderPizza() {
   return {
     type: ORDER_PIZZA,
-    payload: 90,
+    payload: 1,
   };
 }
 
@@ -38,7 +42,7 @@ const reducerPizza = (state = initialStateForPizza, action) => {
     case ORDER_PIZZA:
       return {
         ...state,
-        pizzaBase: state.pizzaBase - 1,
+        pizzaBase: state.pizzaBase - action.payload,
       };
 
     default:
@@ -66,16 +70,14 @@ const rootReducer = combineReducers({
   burger: reducerBurger,
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(logger));
 // 2. It exposes a method called getState which gives your application access to the current state in the store
 
-console.log(store.getState());
+console.log("Initial state", store.getState());
 
 // 3 Register Listners via subscribe (listner)
 
-const unsubscribe = store.subscribe(() =>
-  console.log("Updated State", store.getState())
-);
+const unsubscribe = store.subscribe(() => {});
 
 // 4 It allows to update the state via dispatch(action)
 store.dispatch(orderPizza());
