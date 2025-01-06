@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 import { orderBurger } from "../actions/burgerActions";
 
 function BurgerBox(props) {
-  console.log(props);
   return (
     <div className="container">
       <h2 className="text">
