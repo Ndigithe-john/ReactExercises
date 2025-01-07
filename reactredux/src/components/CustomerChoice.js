@@ -16,7 +16,7 @@ function CustomerChoice(props) {
         value={customerNumber}
         onChange={(e) => setCustomerNumber(+e.target.value)}
       />
-      <button className="btn" onClick={props.orderBurger}>
+      <button className="btn" onClick={() => props.orderBurger(customerNumber)}>
         Order Burner
       </button>
     </div>
@@ -30,7 +30,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    orderBurger: () => dispatch(orderBurger()),
+    orderBurger: (number) => dispatch(orderBurger(number)),
   };
 };
 
