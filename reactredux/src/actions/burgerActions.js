@@ -1,8 +1,8 @@
 import { ORDER_BURGER } from "../constants/PizzaConstants";
 
-export const orderBurger = () => {
+export const orderBurger = (number) => {
   return {
     type: ORDER_BURGER,
-    payload: 2,
+    payload: number,
   };
 };
