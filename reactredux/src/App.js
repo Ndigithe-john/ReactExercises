@@ -6,8 +6,8 @@ import PizzaBox from "./components/PizzaBox";
 function App() {
   return (
     <>
-      {/* <PizzaBox />
-      <BurgerBox /> */}
+      <PizzaBox />
+      <BurgerBox />
       <CustomerChoice />
     </>
   );
