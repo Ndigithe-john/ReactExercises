@@ -7,6 +7,7 @@ const applyMiddleware = redux.applyMiddleware;
 const logger = reduxLogger.createLogger();
 
 const FILL_UPDATE = "FILL_UPDATE";
+const SAUCE_UPDATE = "SAUCE_UPDATE";
 
 const initialState = {
   type: "veggie",
@@ -23,6 +24,12 @@ const updateFill = (filling) => {
     payload: filling,
   };
 };
+const updateSauce = (sauce) => {
+  return {
+    type: SAUCE_UPDATE,
+    payload: sauce,
+  };
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -37,6 +44,10 @@ const reducer = (state = initialState, action) => {
       return produce(state, (draft) => {
         draft.ingredients.filling = action.payload;
       });
+    case SAUCE_UPDATE:
+      return produce(state, (draft) => {
+        draft.ingredients.sauce = action.payload;
+      });
     default:
       return state;
   }
@@ -50,5 +61,6 @@ const unsubscribe = store.subscribe(() => {
 });
 
 store.dispatch(updateFill("Grilled Vegies and cheese"));
+store.dispatch(updateSauce("chilli"));
 
 unsubscribe();
