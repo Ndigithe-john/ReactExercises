@@ -27,13 +27,16 @@ const updateFill = (filling) => {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FILL_UPDATE:
-      return {
-        ...state,
-        ingredients: {
-          ...state.ingredients,
-          filling: action.payload,
-        },
-      };
+      //   return {
+      //     ...state,
+      //     ingredients: {
+      //       ...state.ingredients,
+      //       filling: action.payload,
+      //     },
+      //   };
+      return produce(state, (draft) => {
+        draft.ingredients.filling = action.payload;
+      });
     default:
       return state;
   }
