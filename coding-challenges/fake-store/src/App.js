@@ -1,7 +1,13 @@
+import Header from "./components/Header";
 import ProductsContainer from "./components/ProductsContainer";
 
 function App() {
-  return <ProductsContainer />;
+  return (
+    <>
+      <Header />
+      <ProductsContainer />
+    </>
+  );
 }
 
 export default App;
