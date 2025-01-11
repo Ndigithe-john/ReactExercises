@@ -24,7 +24,7 @@ function orderPizza() {
 }
 
 function orderBugger() {
-  return { type: ORDER_BURGER };
+  return { type: ORDER_BURGER, payload: 1 };
 }
 
 //reducer
@@ -55,7 +55,12 @@ const reducerBurger = (state = initialStateForBurger, action) => {
     case ORDER_BURGER:
       return {
         ...state,
-        burgerBuns: state.burgerBuns - 1,
+        burgerBuns: state.burgerBuns - action.payload,
+      };
+    case ORDER_PIZZA:
+      return {
+        ...state,
+        burgerBuns: state.burgerBuns - action.payload,
       };
     default:
       return state;
@@ -88,4 +93,5 @@ store.dispatch(orderBugger());
 unsubscribe();
 console.log("Unsubscribed");
 store.dispatch(orderPizza());
+store.dispatch(orderBugger());
 console.log(store.getState());
