@@ -9,14 +9,14 @@ export const accountDeposit = (amount) => {
   return { type: ACCOUNT_DEPOSIT, payload: amount };
 };
 
-export const accountWithdraw = () => {
-  return { type: ACCOUNT_WITHDRAW, payload: 200 };
+export const accountWithdraw = (amount) => {
+  return { type: ACCOUNT_WITHDRAW, payload: amount };
 };
 
-export const accoutLoanRequest = () => {
+export const accoutLoanRequest = (amount, reason) => {
   return {
     type: ACCOUNT_REQUEST_LOAN,
-    payload: { amount: 500, reason: "Buy a car" },
+    payload: { amount, reason },
   };
 };
 
