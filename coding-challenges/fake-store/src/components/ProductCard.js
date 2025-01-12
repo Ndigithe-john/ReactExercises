@@ -14,7 +14,13 @@ function ProductCard({ product }) {
   return (
     <Card maxW="sm">
       <CardBody>
-        <Image src={product.image} alt={product.title} borderRadius="lg" />
+        <Image
+          src={product.image}
+          alt={product.title}
+          borderRadius="lg"
+          objectFit="cover"
+          boxSize="250px"
+        />
         <Stack mt={6} spacing={3}>
           <Heading size="md">{product.title}</Heading>
           <Text>{product.description}</Text>
