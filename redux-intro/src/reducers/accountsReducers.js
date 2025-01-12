@@ -5,7 +5,10 @@ import {
   ACCOUNT_PAYLOAN,
 } from "../constants/accountsConstants";
 
-export const customerAccountReducer = (state = {}, action) => {
+export const customerAccountReducer = (
+  state = { balance: 0, loan: 0 },
+  action
+) => {
   switch (action.type) {
     case ACCOUNT_DEPOSIT:
       return { ...state, balance: action.payload };

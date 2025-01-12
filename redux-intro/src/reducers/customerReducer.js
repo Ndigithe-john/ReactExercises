@@ -3,7 +3,10 @@ import {
   CUSTOMER_UPDATENAME,
 } from "../constants/customerConstants";
 
-export const customerReducer = (state = {}, action) => {
+export const customerReducer = (
+  state = { fullName: "", nationalID: "", createdAt: "" },
+  action
+) => {
   switch (action.type) {
     case CUSTOMER_CREATECUSTOMER:
       return {
