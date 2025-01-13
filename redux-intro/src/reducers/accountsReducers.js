@@ -6,7 +6,7 @@ import {
 } from "../constants/accountsConstants";
 
 export const customerAccountReducer = (
-  state = { balance: 0, loan: 0 },
+  state = { balance: 0, loan: 0, purpose: "" },
   action
 ) => {
   switch (action.type) {
@@ -18,6 +18,7 @@ export const customerAccountReducer = (
         ...state,
         loan: action.payload,
         balance: state.balance + action.payload.amount,
+        purpose: state.payload.reason,
       };
     case ACCOUNT_WITHDRAW:
       return { ...state, balance: state.balance - action.payload };

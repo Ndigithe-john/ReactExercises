@@ -12,8 +12,9 @@ import Applica from "./Applica";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={storeV1}>
-      <Applica />
+    <Provider store={storeV3}>
+      <App />
+      {/* <Applica /> */}
     </Provider>
   </React.StrictMode>
 );
