@@ -8,10 +8,10 @@ import Order from "@features/order/Order";
 import NotFound from "@components/Error";
 
 const router = createBrowserRouter([
+  { errorElement: <NotFound /> },
   {
     path: "/",
     element: <Home />,
-    errorElement: <NotFound />,
   },
   {
     path: "/menu",
