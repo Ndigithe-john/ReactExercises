@@ -6,28 +6,34 @@ import Cart from "@features/cart/Cart";
 import CreateOrder from "@features/order/CreateOrder";
 import Order from "@features/order/Order";
 import NotFound from "@components/Error";
+import AppLayout from "@components/AppLayout";
 
 const router = createBrowserRouter([
-  { errorElement: <NotFound /> },
   {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/menu",
-    element: <Menu />,
-  },
-  {
-    path: "/cart",
-    element: <Cart />,
-  },
-  {
-    path: "/order/new",
-    element: <CreateOrder />,
-  },
-  {
-    path: "order/:orderId",
-    element: <Order />,
+    element: <AppLayout />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/menu",
+        element: <Menu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/order/new",
+        element: <CreateOrder />,
+      },
+      {
+        path: "order/:orderId",
+        element: <Order />,
+      },
+    ],
   },
 ]);
 
