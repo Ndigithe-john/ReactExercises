@@ -1,16 +1,24 @@
+import Button from '@components/Button';
+import { formatCurrency } from '@utils/helpers';
+import PropTypes from 'prop-types';
+
 function CartItem({ item }) {
   const { pizzaId, name, quantity, totalPrice } = item;
 
   return (
-    <li>
-      <p>
+    <li className="py-3 sm:flex sm:items-center sm:justify-between">
+      <p className="mb-1 sm:mb-0">
         {quantity}&times; {name}
       </p>
-      <div>
-        <p>{formatCurrency(totalPrice)}</p>
+      <div className="flex items-center justify-between sm:gap-16">
+        <p className="text-sm font-bold"> {formatCurrency(totalPrice)}</p>
+        <Button type="small">Delete</Button>
       </div>
     </li>
   );
 }
+CartItem.propTypes = {
+  item: PropTypes.object,
+};
 
 export default CartItem;

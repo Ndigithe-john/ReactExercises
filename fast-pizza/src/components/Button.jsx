@@ -8,6 +8,8 @@ function Button({ children, disabled, to, type }) {
   const styles = {
     primary: base + ' md:px-6 md:py-4  px-4 py-4',
     small: base + ' py-2 px-4 md:px-5, md:py-2.5 text-sm',
+    secondary:
+      'inline-block rounded-full border-2 border-stone-300  font-semibold uppercase tracking-wide text-stone-400 transition-colors duration-300 hover:text-stone-800 hover:bg-stone-400 focus:bg-stone-400 focus:text-stone-800 focus:outline-none focus:ring focus:ring-stone-400 focus:ring-offset-2 disabled:cursor-not-allowed  md:px-6 md:py-3.5  px-4 py-2.5 ',
   };
 
   if (to)
