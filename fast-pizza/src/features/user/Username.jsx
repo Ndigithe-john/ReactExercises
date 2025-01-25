@@ -1,7 +1,8 @@
+import { getUserName } from '@features/cart/cartSlice';
 import { useSelector } from 'react-redux';
 
 function Username() {
-  const username = useSelector((state) => state.user.username);
+  const username = useSelector(getUserName);
 
   if (!username) return null;
 
