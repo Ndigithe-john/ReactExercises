@@ -5,6 +5,7 @@ import Button from '@components/Button';
 import { updateOrder } from '@services/apiRestaurant';
 
 function UpdateOrder({ order }) {
+  console.log(order);
   const fetcher = useFetcher();
 
   return (
@@ -19,9 +20,9 @@ UpdateOrder.propTypes = {
 };
 export default UpdateOrder;
 
-export async function action({ request, params }) {
+export async function action({ params }) {
   const data = { priority: true };
-  console.log(params);
+
   await updateOrder(params.orderId, data);
 
   return null;
