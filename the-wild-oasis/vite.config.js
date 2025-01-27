@@ -7,4 +7,15 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  resolve: {
+    alias: {
+      "@data": ["/src/data"],
+      "@features": ["/src/features"],
+      "@hooks": ["/src/hooks"],
+      "@pages": ["/src/pages"],
+      "@services": ["/src/services"],
+      "@ui": ["/src/ui"],
+      "@utils": ["/src/utils"],
+    },
+  },
 });
