@@ -3,7 +3,11 @@ import { composeWithDevTools } from "@redux-devtools/extension";
 import logger from "redux-logger";
 import { thunk } from "redux-thunk";
 
-const rootReducer = combineReducers({});
+import usersReducer from "./reducers/usersReducers";
+
+const rootReducer = combineReducers({
+  users: usersReducer,
+});
 
 const store = createStore(
   rootReducer,
