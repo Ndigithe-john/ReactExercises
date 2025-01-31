@@ -17,7 +17,8 @@ import Cabins from "@pages/Cabins";
 const queryclient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 60 * 1000,
+      // staleTime: 60 * 1000,
+      staleTime: 0,
     },
   },
 });
