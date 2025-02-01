@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 
 import { formatCurrency } from "@utils/helpers";
 import styled from "styled-components";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { deleteCabin } from "@services/apiCabins";
 
 const TableRow = styled.div`
   display: grid;
@@ -43,7 +45,26 @@ const Discount = styled.div`
 `;
 
 function CabinRow({ cabin }) {
-  const { name, maxCapacity, discount, regularPrice, image } = cabin;
+  const {
+    id: cabinId,
+    name,
+    maxCapacity,
+    discount,
+    regularPrice,
+    image,
+  } = cabin;
+
+  const queryclient = useQueryClient();
+
+  const { isLoading: isDeleting, mutate } = useMutation({
+    mutationFn: deleteCabin,
+    onSuccess: () => {
+      queryclient.invalidateQueries({
+        queryKey: ["cabins"],
+      });
+    },
+  });
+
   return (
     <TableRow role="row">
       <Img src={image} alt="name" />
@@ -51,7 +72,9 @@ function CabinRow({ cabin }) {
       <div>Fits up to {maxCapacity} guests</div>
       <Price>{formatCurrency(regularPrice)} </Price>
       <Discount>{formatCurrency(discount)}</Discount>
-      <button>Delete</button>
+      <button onClick={() => mutate(cabinId)} disabled={isDeleting}>
+        Delete
+      </button>
     </TableRow>
   );
 }
