@@ -21,10 +21,10 @@ export function useBookings() {
   const {
     isLoading,
     error,
-    data: bookings,
+    data: { data: bookings, count },
   } = useQuery({
     queryKey: ["bookings", filter, sortBy],
     queryFn: () => getBookings({ filter, sortBy }),
   });
-  return { isLoading, error, bookings };
+  return { isLoading, error, bookings, count };
 }
