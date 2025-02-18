@@ -7,6 +7,7 @@ import CabinRow from "./CabinRow";
 import Table from "@ui/Table";
 import Menus from "@ui/Menus";
 import { useSearchParams } from "react-router-dom";
+import Empty from "@ui/Empty";
 
 // const TableHeader = styled.header`
 //   display: grid;
@@ -26,6 +27,8 @@ import { useSearchParams } from "react-router-dom";
 function CabinTable() {
   const { isLoading, cabins } = useCabins();
   const [searchParams] = useSearchParams();
+
+  // if (!cabins.length) return <Empty resourceName="cabins" />;
 
   if (isLoading) return <Spinner />;
   //1. Filter Value
