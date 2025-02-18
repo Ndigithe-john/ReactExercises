@@ -15,7 +15,7 @@ export async function getBooking(id) {
 
   return data;
 }
-export async function getBookings({ filter, sortBy }) {
+export async function getBookings({ filter, sortBy, page }) {
   let query = supabase
     .from("bookings")
     .select("*,cabins(name),guests(fullName,email)", { count: "exact" });
@@ -28,6 +28,10 @@ export async function getBookings({ filter, sortBy }) {
     query = query.order(sortBy.field, {
       ascending: sortBy.direction === "asc",
     });
+
+  if (page) {
+    const from = (query = query.range(from, to));
+  }
 
   const { data, error, count } = await query;
   if (error) {
