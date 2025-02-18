@@ -15,10 +15,14 @@ export async function getBooking(id) {
 
   return data;
 }
-export async function getBookings() {
-  const { data, error } = await supabase
+export async function getBookings({ filter, sortBy }) {
+  let query = supabase
     .from("bookings")
     .select("*,cabins(name),guests(fullName,email)");
+  if (filter !== null)
+    query = query[filter.method || "eq"](filter.field, filter.value);
+
+  const { data, error } = await query;
   if (error) {
     console.error(error);
     throw new Error("Bookings could not get loaded");
