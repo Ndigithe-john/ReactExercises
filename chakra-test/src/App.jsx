@@ -1,11 +1,7 @@
-import { Flex } from "@chakra-ui/react";
+import Testing from "./components/features/Testing";
 
 function App() {
-  return (
-    <Flex as="h1" bg="green" justifyContent="center" alignItems="center">
-      This is it
-    </Flex>
-  );
+  return <Testing />;
 }
 
 export default App;
