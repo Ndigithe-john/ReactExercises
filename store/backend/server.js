@@ -3,7 +3,11 @@ import express from "express";
 import { createServer } from "node:http";
 import dotenv from "dotenv";
 
+import connectDB from "./config/db.config.js";
+
 dotenv.config();
+
+connectDB();
 
 const app = express();
 const server = createServer(app);
