@@ -8,6 +8,9 @@ export default defineConfig({
     port: 3000,
   },
   resolve: {
-    alias: {},
+    alias: {
+      "@components/features": ["/src/components/features"],
+      "@components/ui": ["/src/components/ui"],
+    },
   },
 });
