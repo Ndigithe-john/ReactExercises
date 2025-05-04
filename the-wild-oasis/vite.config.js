@@ -13,6 +13,7 @@ export default defineConfig({
       "@hooks": ["/src/hooks"],
       "@services": ["/src/services"],
       "@ui": ["/src/ui"],
+      "@pages": ["/src/pages"],
     },
   },
 });
